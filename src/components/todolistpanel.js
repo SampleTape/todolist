@@ -1,5 +1,7 @@
 import React from 'react';
 import List from './list';
+import AddDialog from './adddialog';
+import '../styles/todolistpanel.scss';
 
 class ToDoListPanel extends React.Component {
     render() {
@@ -14,6 +16,7 @@ class ToDoListPanel extends React.Component {
                     <List></List>
                 </div>
                 <div className="addButton">+</div>
+                <AddDialog></AddDialog>
             </div>
         );
     }

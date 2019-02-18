@@ -1,0 +1,22 @@
+.Item {
+    width: 500px;
+    height: 24px;
+    font-size: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 4px solid #CCCCCC;
+    .ItemAttribute {
+        width: 30px;
+        height: 24px;
+        text-align: left;
+        text-indent: 4px;
+        img {
+            height: 90%;
+        }
+        &.text {
+            width: 400px;
+        }
+    }
+}

@@ -1,45 +1,51 @@
 import React from 'react';
+import * as Actions from '../actions';
+import {connect} from 'react-redux';
 import start from '../images/start.png';
 import finished from '../images/finished.png';
 import deleteit from '../images/deleteit.png';
 
-class Item extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: props.data,
-        };
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            data: nextProps.data,
-        });
-    }
-    render() {
-        let {when, what, where} = this.state.data;
-        return (
-            <div className="Item">
-                <div className="ItemAttribute">
-                    {when}
-                </div>
-                <div className="ItemAttribute">
-                    {what}
-                </div>
-                <div className="ItemAttribute">
-                    {where}
-                </div>
-                <div className="ItemAttribute">
-                    {start}
-                </div>
-                <div className="ItemAttribute">
-                    {finished}
-                </div>
-                <div className="ItemAttribute">
-                    {deleteit}
-                </div>
+import '../styles/item.scss';
+
+function Item({id, what, startToDo, finishToDo,deleteToDo}) {
+    console.log(what);
+    return (
+        <div className="Item">
+            <div className="ItemAttribute text">
+                {what}
             </div>
-        )
-    }
+            <div className="ItemAttribute" onClick={startToDo}>
+                <img src={start} alt="start" />
+            </div>
+            <div className="ItemAttribute" onClick={finishToDo}>
+                <img src={finished} alt="finished" />
+            </div>
+            <div className="ItemAttribute" onClick={deleteToDo}>
+                <img src={deleteit} alt="deleteit" />
+            </div>
+        </div>
+    );
 }
 
-export default Item;
+function mapStateToProps(state, ownProps) {
+    let {todos} = state;
+    return {
+        what: todos[ownProps.id].what,
+    };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        startToDo: () => {
+            dispatch(Actions.start(ownProps.id));
+        },
+        finishToDo: () => {
+            dispatch(Actions.finished(ownProps.id));
+        },
+        deleteToDo: () => {
+            dispatch(Actions.deleteit(ownProps.id));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

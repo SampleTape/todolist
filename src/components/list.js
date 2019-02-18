@@ -1,29 +1,27 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Item from './item';
 
-class List extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: this.props.data,
-        };
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            data: nextProps.data,
-        });
-    }
-    render() {
-        return (
-            <div className="List">
-                {this.state.data.map(itemData => {
-                    return (
-                        <Item data={itemData}></Item>
-                    );
-                })}
-            </div>
-        );
-    }
+function List({todos, filter}){
+    return (
+        <div className="List">
+            {todos.map((todo, key) => {
+                return (
+                    <Item id={todo.id} what={todo.what} key={key}></Item>
+                );
+            })}
+        </div>
+    );
 }
 
-export default List;
+function mapStateToProps(state) {
+    return {
+        todos: state.todos,
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {};
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(List);

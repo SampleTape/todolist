@@ -8,7 +8,6 @@ import deleteit from '../images/deleteit.png';
 import '../styles/item.scss';
 
 function Item({id, what, startToDo, finishToDo,deleteToDo}) {
-    console.log(what);
     return (
         <div className="Item">
             <div className="ItemAttribute text">

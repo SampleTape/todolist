@@ -1,0 +1,27 @@
+.TabTittle {
+    width: 400px;
+    height: 30px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    .title {
+        width: 100px;
+        height: 25px;
+        font-size: 18px;
+        font-weight: bolder;
+        border-top-right-radius: 4px;
+        color: #343434;
+        background-color: white;
+        border-top: 1px solid #666666;
+        border-right: 1px solid #666666;
+        cursor: pointer;
+        text-align: center;
+        &:first-child {
+            border-left: 1px solid #666666;
+        }
+        &.active {
+            background-color: #666666;
+            color: white;
+        }
+    }
+}

@@ -2,13 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Item from './item';
 
+import '../styles/list.scss';
+
 function List({todos, filter}){
     return (
-        <div className="List">
+        <div className={`List ${filter}`}>
             {todos.map((todo, key) => {
-                return (
-                    <Item id={todo.id} what={todo.what} key={key}></Item>
-                );
+                if (todo.status === filter) {
+                    return (
+                        <Item id={todo.id} what={todo.what} key={key}></Item>
+                    );
+                } else {
+                    return null;
+                }
             })}
         </div>
     );
@@ -17,6 +23,7 @@ function List({todos, filter}){
 function mapStateToProps(state) {
     return {
         todos: state.todos,
+        filter: state.filter,
     };
 }
 

@@ -27,10 +27,7 @@ function Item({id, what, startToDo, finishToDo,deleteToDo}) {
 }
 
 function mapStateToProps(state, ownProps) {
-    let {todos} = state;
-    return {
-        what: todos[ownProps.id].what,
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch, ownProps) {

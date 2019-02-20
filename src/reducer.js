@@ -19,8 +19,10 @@ export default (state, action) => {
             newTodos[index].status = 'doing';
             return {...state, todos: newTodos};
         case ActionTypes.FINISHED:
-            newTodos[index].status = 'finished';
+            newTodos[index].status = 'done';
             return {...state, todos: newTodos};
+        case ActionTypes.FILTER:
+            return {...state, filter: action.filter};
         default:
             return state;
     }

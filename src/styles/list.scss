@@ -1,0 +1,11 @@
+.List {
+    &.todo {
+        background-color: pink;
+    }
+    &.doing {
+        background-color: powderblue;
+    }
+    &.done {
+        background-color: greenyellow;
+    }
+}

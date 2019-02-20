@@ -28,3 +28,10 @@ export const finished = (id) => {
         id,
     };
 };
+
+export const filter = (filter) => {
+    return {
+        type: ActionTypes.FILTER,
+        filter,
+    };
+}

@@ -35,3 +35,10 @@ export const filter = (filter) => {
         filter,
     };
 }
+
+export const showAddDialog = (showadddialog) => {
+    return {
+        type: ActionTypes.SHOWADDDIALOG,
+        showadddialog,
+    }
+}

@@ -23,6 +23,8 @@ export default (state, action) => {
             return {...state, todos: newTodos};
         case ActionTypes.FILTER:
             return {...state, filter: action.filter};
+        case ActionTypes.SHOWADDDIALOG:
+            return {...state, showadddialog: action.showadddialog};
         default:
             return state;
     }

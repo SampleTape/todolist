@@ -10,6 +10,7 @@ const initialList = {
         }
     ],
     filter: 'todo',
+    showadddialog: false,
     counter: 1,
 };
 
